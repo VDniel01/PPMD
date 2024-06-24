@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        // Cambia "GameScene" por el nombre de tu escena de juego
         SceneManager.LoadScene("SampleScene");
     }
 
