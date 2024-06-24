@@ -8,7 +8,6 @@ TagManager:
   - Tower
   - Bullet
   - TowerPlace
-  - TowerPlace2
   layers:
   - Default
   - TransparentFX

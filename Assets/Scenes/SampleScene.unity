@@ -319,10 +319,9 @@ GameObject:
   - component: {fileID: 70888348}
   - component: {fileID: 70888347}
   - component: {fileID: 70888349}
-  - component: {fileID: 70888350}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top (8)
-  m_TagString: TowerPlace2
+  m_TagString: TowerPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -429,18 +428,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &70888350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 70888346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4441b51d7fc5ce2449427a9bb6ed25c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &86370005
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +439,6 @@ GameObject:
   - component: {fileID: 86370008}
   - component: {fileID: 86370007}
   - component: {fileID: 86370006}
-  - component: {fileID: 86370009}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top (12)
   m_TagString: TowerPlace
@@ -562,18 +548,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &86370009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86370005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4441b51d7fc5ce2449427a9bb6ed25c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &183940427
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +722,6 @@ GameObject:
   - component: {fileID: 399781139}
   - component: {fileID: 399781138}
   - component: {fileID: 399781140}
-  - component: {fileID: 399781141}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top (4)
   m_TagString: TowerPlace
@@ -858,18 +831,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &399781141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399781137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4441b51d7fc5ce2449427a9bb6ed25c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &503539381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,10 +965,9 @@ GameObject:
   - component: {fileID: 630763394}
   - component: {fileID: 630763393}
   - component: {fileID: 630763395}
-  - component: {fileID: 630763396}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top (7)
-  m_TagString: TowerPlace2
+  m_TagString: TowerPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1114,18 +1074,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &630763396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630763392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4441b51d7fc5ce2449427a9bb6ed25c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &729642030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,7 +1085,6 @@ GameObject:
   - component: {fileID: 729642032}
   - component: {fileID: 729642031}
   - component: {fileID: 729642033}
-  - component: {fileID: 729642034}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top (11)
   m_TagString: TowerPlace
@@ -1247,18 +1194,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &729642034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729642030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4441b51d7fc5ce2449427a9bb6ed25c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &737767135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,10 +1267,9 @@ GameObject:
   - component: {fileID: 999725351}
   - component: {fileID: 999725350}
   - component: {fileID: 999725352}
-  - component: {fileID: 999725353}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top (3)
-  m_TagString: TowerPlace2
+  m_TagString: TowerPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1442,18 +1376,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &999725353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999725349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4441b51d7fc5ce2449427a9bb6ed25c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1141757525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,7 +1628,6 @@ GameObject:
   - component: {fileID: 1361628320}
   - component: {fileID: 1361628319}
   - component: {fileID: 1361628321}
-  - component: {fileID: 1361628322}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top (6)
   m_TagString: TowerPlace
@@ -1816,18 +1737,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1361628322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361628318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4441b51d7fc5ce2449427a9bb6ed25c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1385774560
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,7 +2009,6 @@ GameObject:
   - component: {fileID: 1593321521}
   - component: {fileID: 1593321520}
   - component: {fileID: 1593321522}
-  - component: {fileID: 1593321523}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top (5)
   m_TagString: TowerPlace
@@ -2210,18 +2118,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1593321523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593321519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4441b51d7fc5ce2449427a9bb6ed25c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1619724956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,7 +2129,6 @@ GameObject:
   - component: {fileID: 1619724958}
   - component: {fileID: 1619724957}
   - component: {fileID: 1619724959}
-  - component: {fileID: 1619724960}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top (1)
   m_TagString: TowerPlace
@@ -2343,18 +2238,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1619724960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619724956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4441b51d7fc5ce2449427a9bb6ed25c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1623847423
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,10 +2280,9 @@ GameObject:
   - component: {fileID: 1729736011}
   - component: {fileID: 1729736010}
   - component: {fileID: 1729736012}
-  - component: {fileID: 1729736013}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top (9)
-  m_TagString: TowerPlace2
+  m_TagString: TowerPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2507,18 +2389,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1729736013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729736009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4441b51d7fc5ce2449427a9bb6ed25c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1785190914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,10 +2556,9 @@ GameObject:
   - component: {fileID: 1888345595}
   - component: {fileID: 1888345594}
   - component: {fileID: 1888345596}
-  - component: {fileID: 1888345597}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top (10)
-  m_TagString: TowerPlace2
+  m_TagString: TowerPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2796,18 +2665,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1888345597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888345593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4441b51d7fc5ce2449427a9bb6ed25c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1896516755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3043,7 +2900,6 @@ GameObject:
   - component: {fileID: 2010150086}
   - component: {fileID: 2010150085}
   - component: {fileID: 2010150087}
-  - component: {fileID: 2010150088}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top (2)
   m_TagString: TowerPlace
@@ -3153,18 +3009,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &2010150088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010150084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4441b51d7fc5ce2449427a9bb6ed25c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2121038908
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,10 +3051,9 @@ GameObject:
   - component: {fileID: 2133716980}
   - component: {fileID: 2133716979}
   - component: {fileID: 2133716981}
-  - component: {fileID: 2133716982}
   m_Layer: 0
   m_Name: Hexagon Pointed-Top
-  m_TagString: TowerPlace2
+  m_TagString: TowerPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3317,18 +3160,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &2133716982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2133716978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4441b51d7fc5ce2449427a9bb6ed25c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2140802276
 GameObject:
   m_ObjectHideFlags: 0

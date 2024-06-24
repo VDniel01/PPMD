@@ -4,40 +4,57 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    public float attackRange = 5f;
+    public float attackCooldown = 1f;
+    private float cooldownTimer = 0f;
+
     public GameObject bulletPrefab;
     public Transform firePoint;
-    private float fireCooldown = 1f;
-    private float fireCooldownLeft = 0f;
 
     void Update()
     {
-        fireCooldownLeft -= Time.deltaTime;
-        if (fireCooldownLeft <= 0f)
+        cooldownTimer -= Time.deltaTime;
+
+        if (cooldownTimer <= 0f)
         {
-            // Lógica de disparo
-            GameObject target = FindTarget(); // Método para encontrar un objetivo (necesitas implementarlo)
-            if (target != null)
+            GameObject nearestEnemy = FindNearestEnemy();
+            if (nearestEnemy != null)
             {
-                Attack(target.transform); // Cambiar a target.transform
+                Attack(nearestEnemy);
+                cooldownTimer = attackCooldown;
             }
         }
     }
 
-    protected virtual void Attack(Transform target)
+    GameObject FindNearestEnemy()
     {
-        // Crear bala y establecer su objetivo
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        if (bulletScript != null)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject nearestEnemy = null;
+        float shortestDistance = Mathf.Infinity;
+
+        foreach (GameObject enemy in enemies)
         {
-            bulletScript.SetTarget(target);
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < shortestDistance && distanceToEnemy <= attackRange)
+            {
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
+            }
         }
-        fireCooldownLeft = fireCooldown;
+
+        return nearestEnemy;
     }
 
-    private GameObject FindTarget()
+    void Attack(GameObject enemy)
     {
-        // Implementar la lógica para encontrar un objetivo cercano
-        return null;
+        if (firePoint != null && bulletPrefab != null)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            if (bulletScript != null)
+            {
+                bulletScript.SetTarget(enemy);
+            }
+        }
     }
 }

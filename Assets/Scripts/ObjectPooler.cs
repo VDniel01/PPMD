@@ -6,7 +6,8 @@ public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler Instance;
     public GameObject objectToPool;
-    public int amountToPool = 20;
+    public int amountToPool;
+
     private List<GameObject> pooledObjects;
 
     void Awake()
@@ -19,7 +20,7 @@ public class ObjectPooler : MonoBehaviour
         pooledObjects = new List<GameObject>();
         for (int i = 0; i < amountToPool; i++)
         {
-            GameObject obj = Instantiate(objectToPool);
+            GameObject obj = (GameObject)Instantiate(objectToPool);
             obj.SetActive(false);
             pooledObjects.Add(obj);
         }
@@ -27,16 +28,17 @@ public class ObjectPooler : MonoBehaviour
 
     public GameObject GetPooledObject()
     {
-        foreach (GameObject obj in pooledObjects)
+        for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if (!obj.activeInHierarchy)
+            if (!pooledObjects[i].activeInHierarchy)
             {
-                return obj;
+                return pooledObjects[i];
             }
         }
-        GameObject newObj = Instantiate(objectToPool);
-        newObj.SetActive(false);
-        pooledObjects.Add(newObj);
-        return newObj;
+
+        GameObject obj = (GameObject)Instantiate(objectToPool);
+        obj.SetActive(false);
+        pooledObjects.Add(obj);
+        return obj;
     }
 }

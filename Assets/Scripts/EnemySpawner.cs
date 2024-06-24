@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject enemyPrefab;
+    public float spawnInterval = 2f;
+
     void Start()
     {
-        
+        InvokeRepeating("SpawnEnemy", 0f, spawnInterval);
     }
 
-    // Update is called once per frame
-    void Update()
+    void SpawnEnemy()
     {
-        
+        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
     }
 }

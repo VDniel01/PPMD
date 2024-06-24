@@ -5,14 +5,13 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
-    private Transform target;
-    public bool isSlowBullet = false;
-    public float slowAmount = 0.5f;
-    public float slowDuration = 2f;
+    public int damage = 1;
 
-    public void SetTarget(Transform _target)
+    private Transform target;
+
+    public void SetTarget(GameObject target)
     {
-        target = _target;
+        this.target = target.transform;
     }
 
     void Update()
@@ -33,19 +32,15 @@ public class Bullet : MonoBehaviour
         }
 
         transform.Translate(direction.normalized * distanceThisFrame, Space.World);
-        transform.LookAt(target);
     }
 
     void HitTarget()
     {
-        // Aplicar efectos al objetivo (por ejemplo, daño, ralentización)
+        // Lógica para dañar al enemigo
         Enemy enemy = target.GetComponent<Enemy>();
         if (enemy != null)
         {
-            if (isSlowBullet)
-            {
-                enemy.ApplySlow(slowAmount, slowDuration);
-            }
+            enemy.TakeDamage(damage);
         }
 
         Destroy(gameObject);
