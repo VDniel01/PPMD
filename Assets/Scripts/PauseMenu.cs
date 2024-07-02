@@ -9,13 +9,11 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-        // Al iniciar, asegurarse de que el menú de pausa esté desactivado
         pauseMenuUI.SetActive(false);
     }
 
     void Update()
     {
-        // Opcional: Pausar con la tecla Escape
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();

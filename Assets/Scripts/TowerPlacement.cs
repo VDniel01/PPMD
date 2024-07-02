@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
 {
-    public GameObject normalTowerPrefab;  // Variable para almacenar el Prefab de la torre normal
-
     void OnMouseDown()
     {
-        // Verifica si el Prefab de la torre normal está asignado
-        if (normalTowerPrefab != null)
+        GameObject selectedTowerPrefab = TowerManager.Instance.GetSelectedTower();
+        if (selectedTowerPrefab != null)
         {
-            // Instancia el Prefab de la torre normal en la posición actual del mouse
-            Instantiate(normalTowerPrefab, transform.position, Quaternion.identity);
+            Instantiate(selectedTowerPrefab, transform.position, Quaternion.identity);
         }
-        
-        
     }
 }

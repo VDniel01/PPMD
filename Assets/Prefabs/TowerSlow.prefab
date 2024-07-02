@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7491570214599898072}
   - component: {fileID: 7484947622442922908}
   - component: {fileID: -1354278770172397012}
-  - component: {fileID: 2189217842957853518}
+  - component: {fileID: 8685476023835051814}
   m_Layer: 0
   m_Name: TowerSlow
   m_TagString: Tower
@@ -140,7 +140,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &2189217842957853518
+--- !u!114 &8685476023835051814
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,10 +149,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1666180618849215695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2a0bc6e40f8f974f96571f76c830e5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 77a14fd725d24b84cac502b84af96f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRange: 3
+  attackCooldown: 1
   bulletPrefab: {fileID: 3097258431661757870, guid: fb3dbfe2cdf47a14a8766446206e63bb, type: 3}
   firePoint: {fileID: 5749720597573783954}
-  slowAmount: 0.5
-  slowDuration: 1
+  slowAmount: 0.7
+  slowDuration: 1.5

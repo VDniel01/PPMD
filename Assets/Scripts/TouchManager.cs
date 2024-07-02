@@ -10,7 +10,6 @@ public class TouchManager : MonoBehaviour
 
     void Start()
     {
-        // marcar las casillas como no ocupadas inicialmente
         GameObject[] towerPlaceObjects = GameObject.FindGameObjectsWithTag("TowerPlace");
         foreach (GameObject towerPlace in towerPlaceObjects)
         {
@@ -50,6 +49,6 @@ public class TouchManager : MonoBehaviour
     void PlaceTower(GameObject towerPlace, Vector3 position)
     {
         Instantiate(towerPrefab, position, Quaternion.identity);
-        towerPlaces[towerPlace] = true; // Marca la casilla como ocupada
+        towerPlaces[towerPlace] = true;
     }
 }

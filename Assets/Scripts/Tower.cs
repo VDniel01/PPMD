@@ -45,7 +45,7 @@ public class Tower : MonoBehaviour
         return nearestEnemy;
     }
 
-    void Attack(GameObject enemy)
+    protected virtual void Attack(GameObject enemy)
     {
         if (firePoint != null && bulletPrefab != null)
         {

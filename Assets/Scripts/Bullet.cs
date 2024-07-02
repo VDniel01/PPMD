@@ -36,7 +36,6 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        // Lógica para dañar al enemigo
         Enemy enemy = target.GetComponent<Enemy>();
         if (enemy != null)
         {
