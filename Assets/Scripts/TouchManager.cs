@@ -7,16 +7,19 @@ public class TouchManager : MonoBehaviour
     public Camera mainCamera;
     public GameObject normalTowerPrefab;
     public GameObject slowTowerPrefab;
+
     private Dictionary<GameObject, bool> towerPlaces = new Dictionary<GameObject, bool>();
+    private GameObject selectedTowerPrefab;
 
     void Start()
     {
-        // Marcar las casillas como no ocupadas inicialmente
         GameObject[] towerPlaceObjects = GameObject.FindGameObjectsWithTag("TowerPlace");
         foreach (GameObject towerPlace in towerPlaceObjects)
         {
             towerPlaces.Add(towerPlace, false);
         }
+
+        selectedTowerPrefab = normalTowerPrefab; // Default to normal tower
     }
 
     void Update()
@@ -32,20 +35,8 @@ public class TouchManager : MonoBehaviour
                 GameObject hitObject = GetHitObject(touchPosition);
                 if (hitObject != null && hitObject.CompareTag("TowerPlace") && !towerPlaces[hitObject])
                 {
-                    PlaceTower(hitObject);
+                    PlaceTower(hitObject, hitObject.transform.position);
                 }
-            }
-        }
-        // Para depuración en editor usando el ratón
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0;
-
-            GameObject hitObject = GetHitObject(mousePosition);
-            if (hitObject != null && hitObject.CompareTag("TowerPlace") && !towerPlaces[hitObject])
-            {
-                PlaceTower(hitObject);
             }
         }
     }
@@ -60,10 +51,22 @@ public class TouchManager : MonoBehaviour
         return null;
     }
 
-    void PlaceTower(GameObject towerPlace)
+    void PlaceTower(GameObject towerPlace, Vector3 position)
     {
-        // Aquí puedes implementar la lógica para elegir entre torretas normales o de ralentización
-        Instantiate(normalTowerPrefab, towerPlace.transform.position, Quaternion.identity);
-        towerPlaces[towerPlace] = true; // Marca la casilla como ocupada
+        if (selectedTowerPrefab != null)
+        {
+            Instantiate(selectedTowerPrefab, position, Quaternion.identity);
+            towerPlaces[towerPlace] = true; // Mark the spot as occupied
+        }
+    }
+
+    public void SelectNormalTower()
+    {
+        selectedTowerPrefab = normalTowerPrefab;
+    }
+
+    public void SelectSlowTower()
+    {
+        selectedTowerPrefab = slowTowerPrefab;
     }
 }
