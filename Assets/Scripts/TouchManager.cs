@@ -63,10 +63,13 @@ public class TouchManager : MonoBehaviour
     public void SelectNormalTower()
     {
         selectedTowerPrefab = normalTowerPrefab;
+        Debug.Log("Normal Tower selected.");
     }
 
     public void SelectSlowTower()
     {
         selectedTowerPrefab = slowTowerPrefab;
+        Debug.Log("Slow Tower selected.");
     }
+
 }
