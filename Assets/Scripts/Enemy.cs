@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health = 3;
-    public float speed = 5f;
+    public float speed = 2f;
     private float originalSpeed;
     private bool isSlowed = false;
 
@@ -14,9 +14,18 @@ public class Enemy : MonoBehaviour
         originalSpeed = speed;
     }
 
-    void Update()
+    public void TakeDamage(int damage)
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 
     public void ApplySlow(float slowAmount, float duration)
@@ -33,19 +42,5 @@ public class Enemy : MonoBehaviour
     {
         speed = originalSpeed;
         isSlowed = false;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        Destroy(gameObject);
     }
 }

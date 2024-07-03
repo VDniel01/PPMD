@@ -5,11 +5,13 @@ using UnityEngine;
 public class TouchManager : MonoBehaviour
 {
     public Camera mainCamera;
-    public GameObject towerPrefab;
+    public GameObject normalTowerPrefab;
+    public GameObject slowTowerPrefab;
     private Dictionary<GameObject, bool> towerPlaces = new Dictionary<GameObject, bool>();
 
     void Start()
     {
+        // Marcar las casillas como no ocupadas inicialmente
         GameObject[] towerPlaceObjects = GameObject.FindGameObjectsWithTag("TowerPlace");
         foreach (GameObject towerPlace in towerPlaceObjects)
         {
@@ -30,8 +32,20 @@ public class TouchManager : MonoBehaviour
                 GameObject hitObject = GetHitObject(touchPosition);
                 if (hitObject != null && hitObject.CompareTag("TowerPlace") && !towerPlaces[hitObject])
                 {
-                    PlaceTower(hitObject, touchPosition);
+                    PlaceTower(hitObject);
                 }
+            }
+        }
+        // Para depuración en editor usando el ratón
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0;
+
+            GameObject hitObject = GetHitObject(mousePosition);
+            if (hitObject != null && hitObject.CompareTag("TowerPlace") && !towerPlaces[hitObject])
+            {
+                PlaceTower(hitObject);
             }
         }
     }
@@ -46,9 +60,10 @@ public class TouchManager : MonoBehaviour
         return null;
     }
 
-    void PlaceTower(GameObject towerPlace, Vector3 position)
+    void PlaceTower(GameObject towerPlace)
     {
-        Instantiate(towerPrefab, position, Quaternion.identity);
-        towerPlaces[towerPlace] = true;
+        // Aquí puedes implementar la lógica para elegir entre torretas normales o de ralentización
+        Instantiate(normalTowerPrefab, towerPlace.transform.position, Quaternion.identity);
+        towerPlaces[towerPlace] = true; // Marca la casilla como ocupada
     }
 }

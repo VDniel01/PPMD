@@ -5,44 +5,56 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float speed = 2f;
+    private Queue<Transform> waypointsQueue;
     private Transform target;
-    private int waypointIndex = 0;
 
     void Start()
     {
-        target = Waypoints.points[0];
-        Debug.Log("Starting movement towards: " + target.name);
-    }
+        // Cargar los waypoints en una cola
+        waypointsQueue = new Queue<Transform>(Waypoints.points);
 
-    void Update()
-    {
-        MoveTowardsTarget();
-    }
-
-    void MoveTowardsTarget()
-    {
-        if (target == null) return;
-
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-        Debug.Log("Moving towards: " + target.name);
-
-        if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+        // Establecer el primer waypoint como objetivo
+        if (waypointsQueue.Count > 0)
         {
-            GetNextWaypoint();
+            target = waypointsQueue.Dequeue();
+        }
+        else
+        {
+            Debug.LogError("No waypoints found!");
+        }
+
+        // Iniciar la corrutina de movimiento
+        StartCoroutine(MoveToNextWaypoint());
+    }
+
+    IEnumerator MoveToNextWaypoint()
+    {
+        while (true)
+        {
+            if (target != null)
+            {
+                Vector3 direction = target.position - transform.position;
+                transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+
+                if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+                {
+                    GetNextWaypoint();
+                }
+            }
+            yield return null;
         }
     }
 
     void GetNextWaypoint()
     {
-        if (waypointIndex >= Waypoints.points.Length - 1)
+        if (waypointsQueue.Count > 0)
         {
-            Destroy(gameObject);
-            return;
+            target = waypointsQueue.Dequeue();
         }
-
-        waypointIndex++;
-        target = Waypoints.points[waypointIndex];
-        Debug.Log("New target: " + target.name);
+        else
+        {
+            Debug.Log("Reached the last waypoint. Destroying enemy.");
+            Destroy(gameObject);
+        }
     }
 }
