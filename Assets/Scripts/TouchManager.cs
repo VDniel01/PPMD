@@ -8,18 +8,17 @@ public class TouchManager : MonoBehaviour
     public GameObject normalTowerPrefab;
     public GameObject slowTowerPrefab;
 
-    private Dictionary<GameObject, bool> towerPlaces = new Dictionary<GameObject, bool>();
     private GameObject selectedTowerPrefab;
+    private Dictionary<GameObject, bool> towerPlaces = new Dictionary<GameObject, bool>();
 
     void Start()
     {
+        selectedTowerPrefab = normalTowerPrefab;
         GameObject[] towerPlaceObjects = GameObject.FindGameObjectsWithTag("TowerPlace");
         foreach (GameObject towerPlace in towerPlaceObjects)
         {
             towerPlaces.Add(towerPlace, false);
         }
-
-        selectedTowerPrefab = normalTowerPrefab; // Default to normal tower
     }
 
     void Update()
@@ -35,7 +34,7 @@ public class TouchManager : MonoBehaviour
                 GameObject hitObject = GetHitObject(touchPosition);
                 if (hitObject != null && hitObject.CompareTag("TowerPlace") && !towerPlaces[hitObject])
                 {
-                    PlaceTower(hitObject, hitObject.transform.position);
+                    PlaceTower(hitObject);
                 }
             }
         }
@@ -51,25 +50,27 @@ public class TouchManager : MonoBehaviour
         return null;
     }
 
-    void PlaceTower(GameObject towerPlace, Vector3 position)
+    void PlaceTower(GameObject towerPlace)
     {
         if (selectedTowerPrefab != null)
         {
-            Instantiate(selectedTowerPrefab, position, Quaternion.identity);
-            towerPlaces[towerPlace] = true; // Mark the spot as occupied
+            TowerCard towerCard = selectedTowerPrefab.GetComponent<TowerCard>();
+            if (towerCard != null && GameManager.Instance.points >= towerCard.cost)
+            {
+                Instantiate(selectedTowerPrefab, towerPlace.transform.position, Quaternion.identity);
+                towerPlaces[towerPlace] = true;
+                GameManager.Instance.AddPoints(-towerCard.cost);
+            }
         }
     }
 
     public void SelectNormalTower()
     {
         selectedTowerPrefab = normalTowerPrefab;
-        Debug.Log("Normal Tower selected.");
     }
 
     public void SelectSlowTower()
     {
         selectedTowerPrefab = slowTowerPrefab;
-        Debug.Log("Slow Tower selected.");
     }
-
 }
