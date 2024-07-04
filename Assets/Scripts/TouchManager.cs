@@ -1,42 +1,87 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TouchManager : MonoBehaviour
 {
     public Camera mainCamera;
     public GameObject normalTowerPrefab;
     public GameObject slowTowerPrefab;
-
+    public Transform towersParent; // Un contenedor para todas las torres
     private GameObject selectedTowerPrefab;
-    private Dictionary<GameObject, bool> towerPlaces = new Dictionary<GameObject, bool>();
+    private GameObject draggingTower;
+    private bool isDragging = false;
 
     void Start()
     {
-        selectedTowerPrefab = normalTowerPrefab;
-        GameObject[] towerPlaceObjects = GameObject.FindGameObjectsWithTag("TowerPlace");
-        foreach (GameObject towerPlace in towerPlaceObjects)
-        {
-            towerPlaces.Add(towerPlace, false);
-        }
+        selectedTowerPrefab = normalTowerPrefab; // Inicialmente seleccionamos la torre normal
     }
 
     void Update()
     {
-        if (Input.touchCount > 0)
+        if (Input.GetMouseButtonDown(0))
         {
-            Touch touch = Input.GetTouch(0);
-            Vector3 touchPosition = mainCamera.ScreenToWorldPoint(touch.position);
-            touchPosition.z = 0;
+            OnTouchBegin(Input.mousePosition);
+        }
 
-            if (touch.phase == TouchPhase.Began)
+        if (Input.GetMouseButton(0) && isDragging)
+        {
+            OnTouchMove(Input.mousePosition);
+        }
+
+        if (Input.GetMouseButtonUp(0) && isDragging)
+        {
+            OnTouchEnd(Input.mousePosition);
+        }
+    }
+
+    void OnTouchBegin(Vector3 touchPosition)
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return; // Si se está tocando la UI, no hagas nada
+        }
+
+        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(touchPosition);
+        worldPosition.z = 0;
+
+        if (selectedTowerPrefab != null)
+        {
+            draggingTower = Instantiate(selectedTowerPrefab, worldPosition, Quaternion.identity, towersParent);
+            isDragging = true;
+        }
+    }
+
+    void OnTouchMove(Vector3 touchPosition)
+    {
+        if (draggingTower != null)
+        {
+            Vector3 worldPosition = mainCamera.ScreenToWorldPoint(touchPosition);
+            worldPosition.z = 0;
+            draggingTower.transform.position = worldPosition;
+        }
+    }
+
+    void OnTouchEnd(Vector3 touchPosition)
+    {
+        if (draggingTower != null)
+        {
+            Vector3 worldPosition = mainCamera.ScreenToWorldPoint(touchPosition);
+            worldPosition.z = 0;
+
+            GameObject hitObject = GetHitObject(worldPosition);
+            if (hitObject != null && hitObject.CompareTag("TowerPlace") && hitObject.transform.childCount == 0)
             {
-                GameObject hitObject = GetHitObject(touchPosition);
-                if (hitObject != null && hitObject.CompareTag("TowerPlace") && !towerPlaces[hitObject])
-                {
-                    PlaceTower(hitObject);
-                }
+                draggingTower.transform.position = hitObject.transform.position;
             }
+            else
+            {
+                Destroy(draggingTower);
+            }
+
+            draggingTower = null;
+            isDragging = false;
         }
     }
 
@@ -48,20 +93,6 @@ public class TouchManager : MonoBehaviour
             return hit.collider.gameObject;
         }
         return null;
-    }
-
-    void PlaceTower(GameObject towerPlace)
-    {
-        if (selectedTowerPrefab != null)
-        {
-            TowerCard towerCard = selectedTowerPrefab.GetComponent<TowerCard>();
-            if (towerCard != null && GameManager.Instance.points >= towerCard.cost)
-            {
-                Instantiate(selectedTowerPrefab, towerPlace.transform.position, Quaternion.identity);
-                towerPlaces[towerPlace] = true;
-                GameManager.Instance.AddPoints(-towerCard.cost);
-            }
-        }
     }
 
     public void SelectNormalTower()

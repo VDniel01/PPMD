@@ -11,6 +11,12 @@ public class Tower : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+    void Start()
+    {
+        // Disable tower shooting initially
+        this.enabled = false;
+    }
+
     void Update()
     {
         cooldownTimer -= Time.deltaTime;
@@ -45,7 +51,8 @@ public class Tower : MonoBehaviour
         return nearestEnemy;
     }
 
-    void Attack(GameObject enemy)
+    // Mark the method as virtual
+    protected virtual void Attack(GameObject enemy)
     {
         if (firePoint != null && bulletPrefab != null)
         {

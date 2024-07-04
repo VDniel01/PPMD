@@ -7,10 +7,12 @@ public class EnemyMovement : MonoBehaviour
     public float speed = 2f;
     private Transform target;
     private int waypointIndex = 0;
+    private float originalSpeed;
 
     void Start()
     {
         target = Waypoints.points[0];
+        originalSpeed = speed;
     }
 
     void Update()
@@ -33,5 +35,16 @@ public class EnemyMovement : MonoBehaviour
         }
         waypointIndex++;
         target = Waypoints.points[waypointIndex];
+    }
+
+    public void ApplySlow(float slowAmount, float duration)
+    {
+        speed = originalSpeed * (1f - slowAmount);
+        Invoke("ResetSpeed", duration);
+    }
+
+    void ResetSpeed()
+    {
+        speed = originalSpeed;
     }
 }

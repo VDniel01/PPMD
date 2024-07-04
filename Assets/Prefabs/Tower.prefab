@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7491570214599898072}
   - component: {fileID: 7484947622442922908}
   - component: {fileID: 8830877219526703601}
-  - component: {fileID: -1354278770172397012}
+  - component: {fileID: -1480273015347806520}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -134,13 +134,15 @@ MonoBehaviour:
   attackCooldown: 1
   bulletPrefab: {fileID: 3097258431661757870, guid: fb3dbfe2cdf47a14a8766446206e63bb, type: 3}
   firePoint: {fileID: 5749720597573783954}
---- !u!64 &-1354278770172397012
-MeshCollider:
+--- !u!58 &-1480273015347806520
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666180618849215695}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -149,10 +151,21 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.21133333}
+  serializedVersion: 2
+  m_Radius: 0.5
